@@ -1,0 +1,88 @@
+@startuml Diagrama de Classes SistemaGestaoContratos
+
+class Cliente {
+    -id_cliente: Integer
+    -nome: string
+    -cpf_cnpj: string
+    -telefone: string
+    -email: string
+    -endereco: string
+    +toString()
+}
+
+class Contrato {
+    -id_contrato: Integer
+    -numero_contrato: string
+    -data_inicio: Date
+    -data_fim: Date
+    -valor_total: Decimal
+    -status: Char
+    -id_cliente: Integer
+    +toString()
+}
+
+class Servico {
+    -id_servico: Integer
+    -nome: string
+    -descricao: string
+    -preco_base: Decimal
+    +toString()
+}
+
+class ItemContrato {
+    -id_item: Integer
+    -id_contrato: Integer
+    -id_servico: Integer
+    -quantidade: Integer
+    -valor_unitario: Decimal
+    +toString()
+}
+
+class Pagamento {
+    -id_pagamento: Integer
+    -id_contrato: Integer
+    -data_pagamento: Date
+    -valor_pago: Decimal
+    -metodo_pagamento: Char
+    -status: Char
+    +toString()
+}
+
+class Funcionario {
+    -id_funcionario: Integer
+    -nome: string
+    -email: string
+    -senha: string
+    -cargo: string
+    +toString()
+}
+
+class Fornecedor {
+    -id_fornecedor: Integer
+    -nome: string
+    -cnpj: string
+    -telefone: string
+    -email: string
+    -endereco: string
+    +toString()
+}
+
+class Documento {
+    -id_documento: Integer
+    -id_contrato: Integer
+    -nome_arquivo: string
+    -tipo: Char
+    -data_upload: Date
+    -caminho_arquivo: string
+    +toString()
+}
+
+Cliente *-- Contrato : Um para\nmuitos
+Contrato *-- Pagamento : Um para\nmuitos
+Contrato *-- Documento : Um para\nmuitos
+Contrato *-- ItemContrato : Um para\nmuitos
+Servico o-- ItemContrato : Um para\nmuitos
+Fornecedor o-- Contrato : Um para\nmuitos (opcional)
+Funcionario o-- Contrato : Um para\nmuitos
+
+@enduml
