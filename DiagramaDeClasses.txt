@@ -1,7 +1,6 @@
-@startuml Diagrama de Classes SistemaGestaoContratos
-
+@startuml
 class Cliente {
-    -id_cliente: Integer
+    -cliente: Cliente
     -nome: string
     -cpf_cnpj: string
     -telefone: string
@@ -11,7 +10,7 @@ class Cliente {
 }
 
 class Contrato {
-    -id_contrato: Integer
+    -contrato: Contrato
     -numero_contrato: string
     -data_inicio: Date
     -data_fim: Date
@@ -22,7 +21,7 @@ class Contrato {
 }
 
 class Servico {
-    -id_servico: Integer
+    -servico: Servico
     -nome: string
     -descricao: string
     -preco_base: Decimal
@@ -30,17 +29,17 @@ class Servico {
 }
 
 class ItemContrato {
-    -id_item: Integer
-    -id_contrato: Integer
-    -id_servico: Integer
+    -item: Item
+    -contrato: Contrato
+    -servico: Servico
     -quantidade: Integer
     -valor_unitario: Decimal
     +toString()
 }
 
 class Pagamento {
-    -id_pagamento: Integer
-    -id_contrato: Integer
+    -pagamento: Pagamento
+    -contrato: Contrato
     -data_pagamento: Date
     -valor_pago: Decimal
     -metodo_pagamento: Char
@@ -49,7 +48,7 @@ class Pagamento {
 }
 
 class Funcionario {
-    -id_funcionario: Integer
+    -funcionario: Funcionario
     -nome: string
     -email: string
     -senha: string
@@ -58,7 +57,7 @@ class Funcionario {
 }
 
 class Fornecedor {
-    -id_fornecedor: Integer
+    -fornecedor: Fornecedor
     -nome: string
     -cnpj: string
     -telefone: string
@@ -68,8 +67,8 @@ class Fornecedor {
 }
 
 class Documento {
-    -id_documento: Integer
-    -id_contrato: Integer
+    -documento: Documento
+    -contrato: Contrato
     -nome_arquivo: string
     -tipo: Char
     -data_upload: Date
@@ -77,12 +76,11 @@ class Documento {
     +toString()
 }
 
-Cliente *-- Contrato : Um para\nmuitos
-Contrato *-- Pagamento : Um para\nmuitos
-Contrato *-- Documento : Um para\nmuitos
-Contrato *-- ItemContrato : Um para\nmuitos
-Servico o-- ItemContrato : Um para\nmuitos
-Fornecedor o-- Contrato : Um para\nmuitos (opcional)
-Funcionario o-- Contrato : Um para\nmuitos
-
+Cliente --* Contrato : Um para\nmuitos
+Contrato --* Pagamento : Um para\nmuitos
+Contrato --* Documento : Um para\nmuitos
+Contrato --* ItemContrato : Um para\nmuitos
+Servico --* ItemContrato : Um para\nmuitos
+Fornecedor --* Contrato : Um para\nmuitos (opcional)
+Funcionario --* Contrato : Um para\nmuitos
 @enduml
