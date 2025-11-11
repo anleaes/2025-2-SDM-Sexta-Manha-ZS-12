@@ -1,0 +1,86 @@
+@startuml
+class Cliente {
+    -cliente: Cliente
+    -nome: string
+    -cpf_cnpj: string
+    -telefone: string
+    -email: string
+    -endereco: string
+    +toString()
+}
+
+class Contrato {
+    -contrato: Contrato
+    -numero_contrato: string
+    -data_inicio: Date
+    -data_fim: Date
+    -valor_total: Decimal
+    -status: Char
+    -id_cliente: Integer
+    +toString()
+}
+
+class Servico {
+    -servico: Servico
+    -nome: string
+    -descricao: string
+    -preco_base: Decimal
+    +toString()
+}
+
+class ItemContrato {
+    -item: Item
+    -contrato: Contrato
+    -servico: Servico
+    -quantidade: Integer
+    -valor_unitario: Decimal
+    +toString()
+}
+
+class Pagamento {
+    -pagamento: Pagamento
+    -contrato: Contrato
+    -data_pagamento: Date
+    -valor_pago: Decimal
+    -metodo_pagamento: Char
+    -status: Char
+    +toString()
+}
+
+class Funcionario {
+    -funcionario: Funcionario
+    -nome: string
+    -email: string
+    -senha: string
+    -cargo: string
+    +toString()
+}
+
+class Fornecedor {
+    -fornecedor: Fornecedor
+    -nome: string
+    -cnpj: string
+    -telefone: string
+    -email: string
+    -endereco: string
+    +toString()
+}
+
+class Documento {
+    -documento: Documento
+    -contrato: Contrato
+    -nome_arquivo: string
+    -tipo: Char
+    -data_upload: Date
+    -caminho_arquivo: string
+    +toString()
+}
+
+Cliente --* Contrato : Um para\nmuitos
+Contrato --* Pagamento : Um para\nmuitos
+Contrato --* Documento : Um para\nmuitos
+Contrato --* ItemContrato : Um para\nmuitos
+Servico --* ItemContrato : Um para\nmuitos
+Fornecedor --* Contrato : Um para\nmuitos (opcional)
+Funcionario --* Contrato : Um para\nmuitos
+@enduml
