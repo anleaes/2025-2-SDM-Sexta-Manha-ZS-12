@@ -23,5 +23,6 @@ urlpatterns = [
     path('contrato/',  include('contrato.urls', namespace='contrato')),
     path('funcionario/', include('funcionario.urls', namespace='funcionario')),
     path('fornecedor/', include('fornecedor.urls', namespace='fornecedor')),
-    path('pagamento/', include('pagamento.urls', namespace='pagamento'))
+    path('pagamento/', include('pagamento.urls', namespace='pagamento')),
+    path('documento/', include('documento.urls', namespace='documento')),
 ]
