@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'contrato.apps.ContratoConfig',
     'funcionario.apps.FuncionarioConfig',
     'fornecedor.apps.FornecedorConfig',
+    'pagamento.apps.PagamentoConfig',
 ]
 
 MIDDLEWARE = [
