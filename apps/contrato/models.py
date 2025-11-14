@@ -48,6 +48,6 @@ class Contrato(models.Model):
 
     def __str__(self):
         # prefer showing the cliente's nome when possible
-        if self.cliente and hasattr(self.cliente, 'nome'):
+        if self.cliente and hasattr(self.numeroContrato, 'numero do contrato'):
             return self.cliente.nome
         return str(self.numeroContrato)
