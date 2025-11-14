@@ -6,12 +6,17 @@ class Funcionario(models.Model):
     nome = models.CharField('nome', max_length=50)
     email = models.EmailField('email', max_length=50)
     senha = models.CharField('senha', max_length=15)
-    cargo = models.CharField('cargo', default='efetivado', choices=['estagiario', 'jovem aprendiz', 'efetivado', 'Estagiario', 'Jovem aprendiz', 'Efetivado'])
+    CARGO_CHOICES = [
+        ('estagiario', 'Estagiario'),
+        ('jovemAprendiz', 'Jovem Aprendiz'),
+        ('efetivado', 'Efetivado'),
+    ]
+    cargo = models.CharField('cargo', max_length=20, default='efetivado', choices=CARGO_CHOICES)
     
     class Meta:
-        verbose_name = 'Pedido'
-        verbose_name_plural = 'Pedidos'
+        verbose_name = 'funcionario'
+        verbose_name_plural = 'funcionarios'
         ordering =['id']
 
     def __str__(self):
-        return "%s" % (self.client) 
+        return self.nome
