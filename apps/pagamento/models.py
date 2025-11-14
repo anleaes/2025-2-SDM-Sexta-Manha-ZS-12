@@ -4,7 +4,7 @@ from contrato.models import Contrato
 
 class Pagamento(models.Model):
     dataPagamento = models.DateField('Data', max_length=10)
-    valorPago = models.DecimalField('valorPago', max_length=10)
+    valorPago = models.DecimalField('valorPago', max_digits=10, decimal_places=2)
     metodoPagamento = models.CharField('metodoPagamento', max_length=20, default='cartao', choices=[
         ('boleto', 'Boleto'),
         ('cartao', 'Cartão de Crédito'),
