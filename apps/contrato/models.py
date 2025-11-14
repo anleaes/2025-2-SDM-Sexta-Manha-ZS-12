@@ -15,5 +15,10 @@ class Contrato(models.Model):
     ])
     cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
 
+    class Meta:
+        verbose_name = 'Contrato'
+        verbose_name_plural = 'Contratos'
+        ordering =['id']
+
     def __str__(self):
         return "%s" % (self.client) 
