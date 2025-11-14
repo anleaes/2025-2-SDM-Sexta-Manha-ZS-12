@@ -5,3 +5,4 @@ class DocumentoConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
     name = 'documento'
     verbose_name = 'documento'
+    
