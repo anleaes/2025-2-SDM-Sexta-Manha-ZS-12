@@ -5,6 +5,6 @@ from .serializer import ContratoSerializer
 
 # Create your views here.
 
-class OrderViewSet(viewsets.ModelViewSet):
+class ContratoViewSet(viewsets.ModelViewSet):
     queryset = Contrato.objects.all()
     serializer_class = ContratoSerializer  
