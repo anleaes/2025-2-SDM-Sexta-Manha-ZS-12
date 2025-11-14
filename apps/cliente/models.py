@@ -16,4 +16,4 @@ class Cliente(models.Model):
             ordering =['id']
 
     def __str__(self):
-        return self.first_name
+        return self.nome
