@@ -5,10 +5,6 @@ from contrato.models import Contrato
 class Pagamento(models.Model):
     dataPagamento = models.DateField('Data', max_length=10)
     valorPago = models.DecimalField('valorPago', max_digits=10, decimal_places=4)
-    metodoPagamento = models.CharField('metodoPagamento', max_length=20, default='cartao', choices=[
-        ('boleto', 'Boleto'),
-        ('cartao', 'Cartão de Crédito'),
-        ('pix', 'PIX'),])
     contrato = models.ForeignKey(Contrato, on_delete=models.CASCADE)
 
     class Meta:
@@ -17,4 +13,4 @@ class Pagamento(models.Model):
         ordering =['id']
 
     def __str__(self):
-        return "%s" % (self.cliente) 
+        return "%s" % (self.contrato) 
