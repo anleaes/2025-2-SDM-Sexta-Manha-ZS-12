@@ -27,4 +27,5 @@ urlpatterns = [
     path('documento/', include('documento.urls', namespace='documento')),
     path('itemContrato/', include('itemContrato.urls', namespace='itemContrato')),
     path('servico/', include('servico.urls', namespace='servico')),
+    path('metodoPagamento/', include('metodoPagamento.urls', namespace='metodoPagamento')),
 ]
